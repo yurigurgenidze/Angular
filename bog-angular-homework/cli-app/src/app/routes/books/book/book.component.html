@@ -1,0 +1,31 @@
+<form class="bg-white p-3" [formGroup]="bookFormService.form">
+  <div class="form-group">
+    <label>Title</label>
+    <input [formControlName]="'title'"
+           type="email"
+           class="form-control"
+           [class.is-invalid]="bookFormService.isInvalid('title')"
+           placeholder="Enter email">
+    <div class="invalid-feedback" *ngFor="let error of bookFormService.getErrors('title')">
+      {{error | json}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Short Description</label>
+    <input
+      [formControlName]="'shortDescription'"
+      type="email"
+      class="form-control"
+      [class.is-invalid]="bookFormService.isInvalid('shortDescription')"
+      placeholder="Enter email">
+    <div class="invalid-feedback" *ngFor="let error of bookFormService.getErrors('shortDescription')">
+      {{error | json}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Full Description</label>
+    <textarea [formControlName]="'fullDescription'" class="form-control" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary btn-sm m-1" (click)="onSubmit()">Submit</button>
+  <button type="submit" class="btn btn-secondary btn-sm m-1" [routerLink]="['../']">Cancel</button>
+</form>

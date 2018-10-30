@@ -1,0 +1,35 @@
+<div class="container-fluid bg-white">
+  <div class="row p-2 pt-5">
+    <div class="col-12 h2">
+      Books List
+      <button class="btn btn-sm btn-success m-1 float-right" [routerLink]="['../book']">Add</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table bg-white table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Short Description</th>
+          <th class="text-right" scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngIf="books$ | async as books">
+          <tr *ngFor="let book of books" [routerLink]="['../book/' + book.id]">
+            <td>{{book.id}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.shortDescription}}</td>
+            <td class="text-right">
+              <button class="btn btn-sm btn-primary m-1">Edit</button>
+              <button class="btn btn-sm btn-danger m-1" (click)="onDelete($event, book)">Delete</button>
+            </td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

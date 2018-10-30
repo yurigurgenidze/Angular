@@ -1,0 +1,9 @@
+// Bootstrap
+$enable-gradients: true;
+$enable-rounded: false;
+$input-btn-focus-width: 0;
+$input-focus-box-shadow: 'none';
+$box-shadow: 0 .5rem 1rem rgba(255, 255, 255, .15);
+
+// scss
+@import "~bootstrap/scss/bootstrap";
